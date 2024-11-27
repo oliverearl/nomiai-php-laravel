@@ -1,36 +1,30 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace Nomiai\PhpSdk\Laravel\Tests;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Config;
 use Orchestra\Testbench\TestCase as Orchestra;
-use VendorName\Skeleton\SkeletonServiceProvider;
+use Nomiai\PhpSdk\Laravel\NomiAIServiceProvider;
 
 class TestCase extends Orchestra
 {
-    protected function setUp(): void
+    /**
+     * Sets up any custom environment variables.
+     */
+    public function getEnvironmentSetUp(mixed $app): void
     {
-        parent::setUp();
-
-        Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'VendorName\\Skeleton\\Database\\Factories\\'.class_basename($modelName).'Factory'
-        );
+        Config::set('database.default', 'testing');
     }
 
-    protected function getPackageProviders($app)
+    /**
+     * Register package providers.
+     *
+     * @return array<int, class-string>
+     */
+    protected function getPackageProviders(mixed $app): array
     {
         return [
-            SkeletonServiceProvider::class,
+            NomiAIServiceProvider::class,
         ];
-    }
-
-    public function getEnvironmentSetUp($app)
-    {
-        config()->set('database.default', 'testing');
-
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_skeleton_table.php.stub';
-        $migration->up();
-        */
     }
 }

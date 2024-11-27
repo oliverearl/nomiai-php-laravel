@@ -1,24 +1,25 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "oliverearl/nomiai-php-laravel",
+    "description": "Laravel library for interacting with the Nomi.ai API",
     "keywords": [
-        ":vendor_name",
-        "laravel",
-        ":package_slug"
+        "nomi ai",
+        "nomi",
+        "artificial intelligence"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/oliverearl/nomiai-php-laravel",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Oliver Earl",
+            "email": "oliver@oliverearl.co.uk",
             "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.4",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "php": "^8.3",
+        "illuminate/contracts": "^10.0||^11.0",
+        "oliverearl/nomiai-php": "^0.1.0@alpha",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,13 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Nomiai\\PhpSdk\\Laravel\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/",
+            "Nomiai\\PhpSdk\\Laravel\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "NomiAIServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "NomiAI": "NomiAI"
             }
         }
     },
