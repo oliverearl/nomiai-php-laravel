@@ -9,11 +9,12 @@ use Nomiai\PhpSdk\NomiAI as BaseNomiAI;
 
 /**
  * @see \Nomiai\PhpSdk\NomiAI
+ *
  * @mixin \Nomiai\PhpSdk\NomiAI
  */
 class NomiAI extends Facade
 {
-    /** @inheritDoc */
+    /** {@inheritDoc} */
     protected static function getFacadeAccessor(): string
     {
         return BaseNomiAI::class;
