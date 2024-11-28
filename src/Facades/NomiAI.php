@@ -14,7 +14,7 @@ use Nomiai\PhpSdk\NomiAI as BaseNomiAI;
  */
 class NomiAI extends Facade
 {
-    /** {@inheritDoc} */
+    /** @inheritDoc */
     protected static function getFacadeAccessor(): string
     {
         return BaseNomiAI::class;

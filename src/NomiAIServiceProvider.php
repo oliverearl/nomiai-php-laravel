@@ -13,6 +13,9 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class NomiAIServiceProvider extends PackageServiceProvider
 {
+    /**
+     * Configure the package.
+     */
     public function configurePackage(Package $package): void
     {
         $package
@@ -21,6 +24,8 @@ class NomiAIServiceProvider extends PackageServiceProvider
     }
 
     /**
+     * Register bindings into the container.
+     *
      * @throws \Nomiai\PhpSdk\Laravel\Exceptions\NomiaiException
      */
     public function registeringPackage(): void
