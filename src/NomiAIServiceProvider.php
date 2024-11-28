@@ -21,7 +21,6 @@ class NomiAIServiceProvider extends PackageServiceProvider
     }
 
     /**
-     *
      * @throws \Nomiai\PhpSdk\Laravel\Exceptions\NomiaiException
      */
     public function registeringPackage(): void
