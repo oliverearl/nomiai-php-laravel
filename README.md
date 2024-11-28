@@ -1,19 +1,14 @@
-# This is my package nomiai-php-laravel
+# Nomi.ai Laravel Wrapper for PHP Library
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/oliverearl/nomiai-php-laravel.svg?style=flat-square)](https://packagist.org/packages/oliverearl/nomiai-php-laravel)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/oliverearl/nomiai-php-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/oliverearl/nomiai-php-laravel/actions?query=workflow%3Arun-tests+branch%3Amain)
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/oliverearl/nomiai-php-laravel/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/oliverearl/nomiai-php-laravel/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/oliverearl/nomiai-php-laravel.svg?style=flat-square)](https://packagist.org/packages/oliverearl/nomiai-php-laravel)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+This is a wrapper for the [Nomi.ai PHP library](https://github.com/oliverearl/nomiai-php) for easy integration into
+Laravel applications. [Nomi.ai](https://www.nomi.ai) is a companionship application that uses artificial intelligence.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/nomiai-php-laravel.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/nomiai-php-laravel)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+You will need at least PHP 8.3 with the JSON extension, and Laravel 10 or above.
 
 ## Installation
 
@@ -23,44 +18,41 @@ You can install the package via composer:
 composer require oliverearl/nomiai-php-laravel
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="nomiai-php-laravel-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="nomiai-php-laravel-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="nomiai-php-laravel-views"
-```
+````
 
 ## Usage
 
+To get started, you simply need to add your Nomi.ai API key to your `.env.` file under `NOMIAI_API_KEY`. You can also
+provide a custom endpoint under `NOMIAI_ENDPOINT` if you need this functionality.
+
+From here, you can access the Nomi.ai PHP library using its facade. Laravel will automatically use your default
+HTTP library, however that might be configured.
+
 ```php
-$nomiai = new Nomiai\Nomiai();
-echo $nomiai->echoPhrase('Hello, Nomiai!');
+use \Nomiai\PhpSdk\Laravel\Facades\NomiAI;
+
+/** @var array<int, \Nomiai\PhpSdk\Resources\Nomi> $nomis */
+$nomis = NomiAI::getNomis();
+
+$conversation = NomiAi::sendMessageToNomi(collect($nomis)->first(), 'Hello Nomi!');
 ```
 
+Please check the PHP library documentation for more information on available functionality.
+
 ## Testing
+
+Laravel Pint is used to maintain the PER coding style. The linter can be run using:
 
 ```bash
 composer test
 ```
+
+There are Pest architecture tests that also attempt to maintain certain conventions, including the use of strict typing 
+where possible.
 
 ## Changelog
 
@@ -68,7 +60,9 @@ Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed re
 
 ## Contributing
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+Your contributions are warmly welcomed! Anything from documentation, to optimisations, and additional tests. Pull requests must pass the existing test suite and conform to the required code style.
+
+For new functionality, adequate tests must be included!
 
 ## Security Vulnerabilities
 
