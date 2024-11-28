@@ -13,7 +13,7 @@ class NomiaiException extends RuntimeException
      */
     public static function missingApiToken(): self
     {
-        return new static('No Nomi.ai API token was provided. Please provide an API token!');
+        return new self('No Nomi.ai API token was provided. Please provide an API token!');
     }
 
     /**
@@ -21,6 +21,6 @@ class NomiaiException extends RuntimeException
      */
     public static function missingEndpoint(): self
     {
-        return new static('No Nomi.ai endpoint was provided. Please provide a valid endpoint!');
+        return new self('No Nomi.ai endpoint was provided. Please provide a valid endpoint!');
     }
 }
