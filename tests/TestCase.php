@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Nomiai\PhpSdk\Laravel\Tests;
 
 use Illuminate\Support\Facades\Config;
