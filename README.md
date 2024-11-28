@@ -8,7 +8,7 @@
 This is a wrapper for the [Nomi.ai PHP library](https://github.com/oliverearl/nomiai-php) for easy integration into
 Laravel applications. [Nomi.ai](https://www.nomi.ai) is a companionship application that uses artificial intelligence.
 
-You will need at least PHP 8.3 with the JSON extension, and Laravel 10 or above.
+You will need at least PHP 8.3 with the JSON extension, and Laravel 11 or above.
 
 ## Installation
 
