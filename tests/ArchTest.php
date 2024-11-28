@@ -7,6 +7,6 @@ arch()->preset()->php();
 arch()->preset()->security();
 
 arch()
-    ->expect('\Nomiai\PhpSdk\Laravel')
+    ->expect('Nomiai\PhpSdk\Laravel')
     ->toUseStrictEquality()
     ->toUseStrictTypes();
