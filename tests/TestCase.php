@@ -16,6 +16,7 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp(mixed $app): void
     {
         Config::set('database.default', 'testing');
+        Config::set('nomiai.api_key', 'token');
     }
 
     /**

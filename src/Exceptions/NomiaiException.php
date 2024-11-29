@@ -15,12 +15,4 @@ class NomiaiException extends RuntimeException
     {
         return new self('No Nomi.ai API token was provided. Please provide an API token!');
     }
-
-    /**
-     * The exception to be thrown if the endpoint is missing.
-     */
-    public static function missingEndpoint(): self
-    {
-        return new self('No Nomi.ai endpoint was provided. Please provide a valid endpoint!');
-    }
 }

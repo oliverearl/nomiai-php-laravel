@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Nomiai\PhpSdk\Laravel;
 
 use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Str;
+use Nomiai\PhpSdk\Laravel\Adapters\LaravelHttpGuzzleAdapter;
 use Nomiai\PhpSdk\Laravel\Exceptions\NomiaiException;
 use Nomiai\PhpSdk\NomiAI;
 use Spatie\LaravelPackageTools\Package;
@@ -13,6 +13,11 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class NomiAIServiceProvider extends PackageServiceProvider
 {
+    /**
+     * The version of the Laravel SDK.
+     */
+    final public const string VERSION = '1.0.0';
+
     /**
      * Configure the package.
      */
@@ -32,17 +37,17 @@ class NomiAIServiceProvider extends PackageServiceProvider
     {
         $this->app->bind(NomiAI::class, function (): NomiAI {
             $token = Config::string('nomiai.api_key');
-            $endpoint = Config::string('nomiai.endpoint');
+            $endpoint = Config::string('nomiai.endpoint') ?: NomiAI::DEFAULT_ENDPOINT;
 
             if (empty($token)) {
                 throw NomiaiException::missingApiToken();
             }
 
-            if (empty($endpoint)) {
-                throw NomiaiException::missingEndpoint();
-            }
-
-            return new NomiAI($token, Str::rtrim($endpoint, '/'));
+            return new NomiAI(
+                token: $token,
+                endpoint: $endpoint,
+                client: new LaravelHttpGuzzleAdapter(['token' => $token, 'base_url' => $endpoint]),
+            );
         });
     }
 }
