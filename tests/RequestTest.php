@@ -17,7 +17,6 @@ it('can fire a http request and be successfully mocked by laravel', function ():
         'relationshipType' => fake()->randomElement(RelationshipType::cases()),
     ]);
 
-    Http::preventingStrayRequests();
     Http::fake(['*' => Http::response($nomi->toArray())]);
 
     $response = NomiAI::getNomi($nomi->uuid);
