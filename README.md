@@ -64,13 +64,10 @@ Your contributions are warmly welcomed! Anything from documentation, to optimisa
 
 For new functionality, adequate tests must be included!
 
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
-
 ## Credits
 
 - [Oliver Earl](https://github.com/oliverearl)
+- [Nomi.ai](https://www.nomi.ai)
 - [All Contributors](../../contributors)
 
 ## License
