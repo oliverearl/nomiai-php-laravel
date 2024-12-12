@@ -45,14 +45,22 @@ Please check the PHP library documentation for more information on available fun
 
 ## Testing
 
-Laravel Pint is used to maintain the PER coding style. The linter can be run using:
+Tests are run using the [Pest](https://pestphp.com/) testing framework. You can run the suite like so:
 
 ```bash
 composer test
 ```
 
-There are Pest architecture tests that also attempt to maintain certain conventions, including the use of strict typing 
-where possible.
+## Code Style
+
+Laravel Pint is used to maintain the PER coding style. The linter can be run using:
+
+```bash
+composer format
+```
+
+There are Pest architecture tests that also attempt to maintain certain conventions, including the use of strict
+typing where possible.
 
 ## Changelog
 
