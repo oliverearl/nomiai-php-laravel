@@ -2,6 +2,20 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.0.1 - 2025-01-28
+
+### What's Changed
+
+* Update README with correct information on linting and running tests. by @oliverearl in https://github.com/oliverearl/nomiai-php-laravel/pull/1
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/oliverearl/nomiai-php-laravel/pull/2
+
+### New Contributors
+
+* @oliverearl made their first contribution in https://github.com/oliverearl/nomiai-php-laravel/pull/1
+* @dependabot made their first contribution in https://github.com/oliverearl/nomiai-php-laravel/pull/2
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.0.0...1.0.1
+
 ## 1.0.0 - 2024-12-12
 
 Thank you for your patience throughout the development procedure. All functionality and documentation pertinent to the current iteration of the Nomi.ai API have been implemented and tested.
