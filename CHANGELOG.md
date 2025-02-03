@@ -2,6 +2,14 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.0.2 - 2025-02-03
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/oliverearl/nomiai-php-laravel/pull/3
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.0.1...1.0.2
+
 ## 1.0.1 - 2025-01-28
 
 ### What's Changed
