@@ -2,6 +2,14 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.1.1 - 2025-03-05
+
+### What's Changed
+
+* Ignore incorrect Larastan error by @oliverearl in https://github.com/oliverearl/nomiai-php-laravel/pull/5
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.1.0...1.1.1
+
 ## 1.1.0 - 2025-03-05
 
 ### What's Changed
