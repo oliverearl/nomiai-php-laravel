@@ -2,6 +2,14 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.1.2 - 2025-05-13
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/oliverearl/nomiai-php-laravel/pull/6
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.1.1...1.1.2
+
 ## 1.1.1 - 2025-03-05
 
 ### What's Changed
