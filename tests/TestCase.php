@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Nomiai\PhpSdk\Laravel\Tests;
 
-use Illuminate\Support\Facades\Config;
 use Nomiai\PhpSdk\Laravel\NomiAIServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -15,8 +14,8 @@ class TestCase extends Orchestra
      */
     public function getEnvironmentSetUp(mixed $app): void
     {
-        Config::set('database.default', 'testing');
-        Config::set('nomiai.api_key', 'token');
+        $app['config']->set('database.default', 'testing');
+        $app['config']->set('nomiai.api_key', 'token');
     }
 
     /**

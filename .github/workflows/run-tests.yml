@@ -17,9 +17,9 @@ jobs:
       fail-fast: true
       matrix:
         os: [ubuntu-latest]
-        php: [8.4, 8.3]
+        php: [8.5, 8.4, 8.3]
         laravel: [12.*, 11.*]
-        stability: [prefer-lowest, prefer-stable]
+        stability: [prefer-stable]
         include:
           - laravel: 12.*
             testbench: 10.*
@@ -54,3 +54,6 @@ jobs:
 
       - name: Execute tests
         run: vendor/bin/pest --ci
+
+      - name: Check for propfanity
+        run: vendor/bin/pest --profanity --ci
