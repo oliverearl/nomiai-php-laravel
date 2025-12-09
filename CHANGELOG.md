@@ -2,6 +2,19 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.1.3 - 2025-12-09
+
+### What's Changed
+
+* Bump stefanzweifel/git-auto-commit-action from 5 to 6 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/7
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/8
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/9
+* Bump stefanzweifel/git-auto-commit-action from 6 to 7 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/10
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/11
+* 8.5 support by @oliverearl in https://github.com/oliverearl/nomiai-php-laravel/pull/12
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.1.2...1.1.3
+
 ## 1.1.2 - 2025-05-13
 
 ### What's Changed
