@@ -39,30 +39,21 @@ final class LaravelHttpGuzzleAdapter implements ClientInterface
         // Convert the Guzzle PSR-7 request to a Laravel HTTP request.
         $response = Http::withOptions($options)
             ->baseUrl(Arr::get($this->options, 'base_url'))
-            ->withUserAgent(sprintf('Nomi.ai Laravel SDK (%s)', NomiAIServiceProvider::VERSION))
+            ->withUserAgent($this->getUserAgent())
             ->send(
                 $request->getMethod(),
                 (string) $request->getUri(),
                 [
                     RequestOptions::BODY => $request->getBody()->getContents(),
                     RequestOptions::HEADERS => array_merge(
-                        [
-                            'Authorization' => Arr::get($this->options, 'token'),
-                            'Accept' => 'application/json',
-                            'Content-Type' => 'application/json',
-                        ],
+                        $this->buildHeaders(),
                         $request->getHeaders(),
                     ),
                     RequestOptions::HTTP_ERRORS => false,
                 ],
             );
 
-        // Convert the Laravel HTTP response back to a PSR-7 response.
-        return new Response(
-            $response->status(),
-            $response->headers(),
-            $response->body(),
-        );
+        return $this->convertToPsr7Response($response);
     }
 
     /** @inheritDoc */
@@ -73,14 +64,7 @@ final class LaravelHttpGuzzleAdapter implements ClientInterface
         $headers = $options['headers'] ?? [];
         $query = $options['query'] ?? [];
 
-        $mergedHeaders = array_merge(
-            [
-                'Authorization' => Arr::get($this->options, 'token') ?: throw NomiaiException::missingApiToken(),
-                'Accept' => 'application/json',
-                'Content-Type' => 'application/json',
-            ],
-            $headers,
-        );
+        $mergedHeaders = array_merge($this->buildHeaders(), $headers);
 
         // Remove null headers to avoid invalid header issues.
         $filteredHeaders = array_filter($mergedHeaders, fn(mixed $value): bool => $value !== null);
@@ -96,15 +80,10 @@ final class LaravelHttpGuzzleAdapter implements ClientInterface
         // Make the request using Laravel's HTTP client.
         $response = Http::withOptions($laravelOptions)
             ->baseUrl(Arr::get($this->options, 'base_url'))
-            ->withUserAgent(sprintf('Nomi.ai Laravel SDK (%s)', NomiAIServiceProvider::VERSION))
+            ->withUserAgent($this->getUserAgent())
             ->send($method, $uri);
 
-        // Convert the Laravel HTTP response back to a PSR-7 response.
-        return new Response(
-            $response->status(),
-            $response->headers(),
-            $response->body(),
-        );
+        return $this->convertToPsr7Response($response);
     }
 
     /** @inheritDoc */
@@ -120,9 +99,44 @@ final class LaravelHttpGuzzleAdapter implements ClientInterface
     }
 
 
-    /** @inheritDoc **/
+    /** @inheritDoc */
     public function requestAsync(string $method, $uri, array $options = []): PromiseInterface
     {
         throw new BadMethodCallException('Not implemented.');
+    }
+
+    /**
+     * Build default headers for requests.
+     *
+     * @return array<string, string>
+     * @throws \Nomiai\PhpSdk\Laravel\Exceptions\NomiaiException
+     */
+    private function buildHeaders(): array
+    {
+        return [
+            'Authorization' => Arr::get($this->options, 'token') ?: throw NomiaiException::missingApiToken(),
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ];
+    }
+
+    /**
+     * Convert Laravel HTTP response to PSR-7 response.
+     */
+    private function convertToPsr7Response(\Illuminate\Http\Client\Response $laravelResponse): ResponseInterface
+    {
+        return new Response(
+            $laravelResponse->status(),
+            $laravelResponse->headers(),
+            $laravelResponse->body(),
+        );
+    }
+
+    /**
+     * Get the User-Agent string for requests.
+     */
+    private function getUserAgent(): string
+    {
+        return sprintf('Nomi.ai Laravel SDK (%s)', NomiAIServiceProvider::VERSION);
     }
 }

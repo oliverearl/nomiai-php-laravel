@@ -1,0 +1,7 @@
+# PHPStan Baseline
+#
+# This file is intentionally empty. It exists to allow PHPStan to generate
+# a baseline if needed in the future, without requiring configuration changes.
+#
+# To generate a baseline: vendor/bin/phpstan analyse --generate-baseline
+

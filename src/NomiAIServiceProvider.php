@@ -16,7 +16,7 @@ class NomiAIServiceProvider extends PackageServiceProvider
     /**
      * The version of the Laravel SDK.
      */
-    final public const string VERSION = '1.0.0';
+    final public const string VERSION = '1.1.4';
 
     /**
      * Configure the package.
