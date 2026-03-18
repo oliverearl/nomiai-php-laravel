@@ -72,6 +72,12 @@ Your contributions are warmly welcomed! Anything from documentation, to optimisa
 
 For new functionality, adequate tests must be included!
 
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
+
+## Security
+
+If you discover a security vulnerability, please review our [Security Policy](SECURITY.md) for responsible disclosure procedures.
+
 ## Credits
 
 - [Oliver Earl](https://github.com/oliverearl)
