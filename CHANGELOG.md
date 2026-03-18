@@ -2,6 +2,17 @@
 
 All notable changes to `nomiai-php-laravel` will be documented in this file.
 
+## 1.1.4 - 2026-03-18
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/13
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/oliverearl/nomiai-php-laravel/pull/14
+* Add Laravel 13 support by @oliverearl in https://github.com/oliverearl/nomiai-php-laravel/pull/15
+* Various improvements, fixes, and OSS improvements by @oliverearl in https://github.com/oliverearl/nomiai-php-laravel/pull/16
+
+**Full Changelog**: https://github.com/oliverearl/nomiai-php-laravel/compare/1.1.3...1.1.4
+
 ## 1.1.3 - 2025-12-09
 
 ### What's Changed
